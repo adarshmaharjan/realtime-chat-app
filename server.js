@@ -48,11 +48,10 @@ app
 
       chatHistory.messages.push(chat);
       pusher.trigger("chat-room", "new-message", { chat });
-    });
-
-    server.post("/messages", (req, res, next) => {
       res.json({ ...chatHistory, status: "success" });
     });
+
+    // server.post("/messages", (req, res, next) => {});
 
     server.listen(port, (err) => {
       if (err) throw err;
